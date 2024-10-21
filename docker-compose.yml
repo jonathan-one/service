@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    web-goconnexionsapp:
+        build: .
+        image: "soro08/goconnexionsapp"
+        container_name: goconnexionsapp
+        command: python manage.py runserver 0.0.0.0:8000
+        ports:
+            - "8000:8000"
+        volumes:
+            - staticfiles:/code/staticfiles
+        restart: always
+
+volumes:
+    staticfiles:

@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+    web-goconnexionsapp:
+        image: "soro08/goconnexionsapp"
+        container_name: goconnexionsapp
+        command: python manage.py runserver 0.0.0.0:8000
+        environment:
+            - VIRTUAL_HOST=goconnexions.ca
+            - LETSENCRYPT_HOST=goconnexions.ca
+            - LETSENCRYPT_EMAIL=livetube225@gmail.com
+            - VIRTUAL_PORT=8000
+        expose:
+            - "8000"
+        volumes:
+            - staticfiles:/code/staticfiles
+        restart: always
+        networks:
+            - "net"
+
+networks:
+    net:
+        external: true
+volumes:
+    staticfiles:
