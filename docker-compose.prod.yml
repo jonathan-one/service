@@ -17,7 +17,8 @@ services:
         restart: always
         networks:
             - "net"
-
+        env_file:
+            - ./.env
 networks:
     net:
         external: true

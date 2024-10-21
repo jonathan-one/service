@@ -11,6 +11,7 @@ services:
         volumes:
             - staticfiles:/code/staticfiles
         restart: always
-
+        env_file:
+            - ./.env
 volumes:
     staticfiles:
